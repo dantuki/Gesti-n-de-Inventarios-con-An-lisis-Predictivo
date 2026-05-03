@@ -1,0 +1,37 @@
+{
+  "name": "gesti-n-de-inventarios-con-an-lisis-predictivo",
+  "version": "1.0.0",
+  "description": "Sistema de gestión de inventarios con Node.js y PostgreSQL",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dantuki/Gesti-n-de-Inventarios-con-An-lisis-Predictivo.git"
+  },
+  "keywords": [
+    "inventory",
+    "predictive-analysis",
+    "node",
+    "postgresql"
+  ],
+  "author": "Daniel Bedoya Lopez",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/dantuki/Gesti-n-de-Inventarios-con-An-lisis-Predictivo/issues"
+  },
+  "homepage": "https://github.com/dantuki/Gesti-n-de-Inventarios-con-An-lisis-Predictivo#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "pg": "^8.20.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
