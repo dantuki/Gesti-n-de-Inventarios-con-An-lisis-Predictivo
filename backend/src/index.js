@@ -18,9 +18,16 @@ app.get('/', (req, res) => {
     res.json({ message: 'API de Gestión de Inventarios funcionando 🚀' });
 });
 
-// Debajo de productRoutes
+
+
+
 const movementRoutes = require('./routes/movementRoutes');
 app.use('/movimientos', movementRoutes);
+
+const analyticsRoutes = require('./routes/analyticsRoutes');
+// ... debajo de las otras rutas
+app.use('/analytics', analyticsRoutes);
+
 
 app.listen(PORT, () => {
     console.log(`✅ Servidor corriendo en http://localhost:${PORT}`);
