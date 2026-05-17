@@ -1,9 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const { getProducts, createProduct } = require('../controllers/productController');
+// Importamos las dos funciones del controlador de movimientos
+const { registerSale, registerInput } = require('../controllers/movementController');
 
-// Definimos las rutas
-router.get('/', getProducts);
-router.post('/', createProduct);
+// Definimos las rutas para movimientos
+router.post('/venta', registerSale);
+router.post('/entrada', registerInput);
 
 module.exports = router;

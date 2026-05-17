@@ -1,34 +1,24 @@
 const express = require('express');
-const cors = require('cors');
-require('dotenv').config();
-const productRoutes = require('./routes/productRoutes');
-
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middlewares
-app.use(cors());
+// 1. MIDDLEWARES (¡Siempre van arriba de las rutas!)
 app.use(express.json());
 
-// Rutas
-app.use('/productos', productRoutes);
+// 2. IMPORTACIÓN DE RUTAS
+const productRoutes = require('./routes/productRoutes');
+const movementRoutes = require('./routes/movementRoutes'); // Traemos las rutas unificadas
 
-// Ruta de salud del servidor
+// 3. CONEXIÓN DE RUTAS EN EXPRESS
+app.use('/productos', productRoutes);
+app.use('/movimientos', movementRoutes); // Activamos /movimientos/venta y /movimientos/entrada
+
+// 4. RUTA DE SALUD DEL SERVIDOR
 app.get('/', (req, res) => {
     res.json({ message: 'API de Gestión de Inventarios funcionando 🚀' });
 });
 
-
-
-
-const movementRoutes = require('./routes/movementRoutes');
-app.use('/movimientos', movementRoutes);
-
-const analyticsRoutes = require('./routes/analyticsRoutes');
-// ... debajo de las otras rutas
-app.use('/analytics', analyticsRoutes);
-
-
+// 5. ARRANQUE DEL SERVIDOR
 app.listen(PORT, () => {
     console.log(`✅ Servidor corriendo en http://localhost:${PORT}`);
 });
